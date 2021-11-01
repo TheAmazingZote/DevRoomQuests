@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id "com.github.johnrengelman.shadow" version "7.1.0"
+}
+
+group = 'me.zote.quests'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc-repo'
+        url = 'https://papermc.io/repo/repository/maven-public/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+
+    maven { url = "https://repo.aikar.co/content/groups/aikar/" }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.17.1-R0.1-SNAPSHOT'
+
+    implementation "co.aikar:idb-core:1.0.0-SNAPSHOT"
+    implementation "com.zaxxer:HikariCP:5.0.0"
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}

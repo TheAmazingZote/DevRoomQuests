@@ -1,0 +1,4 @@
+name: DevRoomQuests
+version: '${version}'
+main: me.zote.quests.Quests
+api-version: 1.17

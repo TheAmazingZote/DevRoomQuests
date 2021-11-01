@@ -1,0 +1,7 @@
+name: Beacon
+# Types: KILL, MOVE, BREAK, PLACE, COMMAND
+type: COMMAND
+target: /tpa
+amount: 50
+rewards:
+- 'give %player% stone 64'
